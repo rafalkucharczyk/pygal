@@ -313,6 +313,20 @@ class Graph(PublicApi):
 
             text.text = label
 
+            if self.show_y_guides:
+                for g in self.y_guide_labels:
+                    if g[0] == position:
+                        guide_text = self.svg.node(
+                            guides,
+                            'text',
+                            x=x,
+                            y=y - .4 * self.style.label_font_size,
+                            class_='backwards'
+                        )
+                        guide_text.attrib['transform'] = 'translate(8,0)'
+
+                        guide_text.text = g[1]
+
             if self.y_label_rotation:
                 text.attrib['transform'] = "rotate(%d %f %f)" % (
                     self.y_label_rotation, x, y

@@ -356,6 +356,10 @@ class Config(CommonConfig):
         "Must be a list of numbers", float
     )
 
+    y_guide_labels = Key(
+        None, list, "Label", "You can specify explicit y guide labels",
+    )
+
     y_labels_major = Key(
         None,
         list,
