@@ -113,11 +113,11 @@ class PublicApi(BaseGraph):
         with io.open(filename, 'w', encoding='utf-8') as f:
             f.write(self.render(is_unicode=True, **kwargs))
 
-    def render_to_png(self, filename=None, dpi=72, **kwargs):
+    def render_to_png(self, filename=None, dpi=72, scale=1, **kwargs):
         """Render the graph, convert it to png and write it to filename"""
         import cairosvg
         return cairosvg.svg2png(
-            bytestring=self.render(**kwargs), write_to=filename, dpi=dpi
+            bytestring=self.render(**kwargs), write_to=filename, dpi=dpi, scale=scale
         )
 
     def render_sparktext(self, relative_to=None):
